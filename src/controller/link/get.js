@@ -11,5 +11,10 @@ module.exports = async (req, res) => {
     newUrl: link,
   });
 
+  if (!model) {
+    res.status(400).send();
+    return;
+  }
+
   res.redirect(model.oldUrl);
 };
